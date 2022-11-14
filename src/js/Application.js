@@ -9,8 +9,25 @@ export default class Application extends EventEmitter {
 
   constructor() {
     super();
-    this.init();
+    const article = document.querySelector("article");
+    anime({
+      targets: article,
+    })
+    
+    article.addEventListener("click", this.init(article));
+  
+
     this.emit(Application.events.READY);
   }
-  init() {}
+  init(arg) {
+    anime({
+      targets: arg,
+      translateX: 250,
+      direction: 'alternate',
+      loop: true,
+      easing: 'linear',
+    })
+    
+  }
 }
+
