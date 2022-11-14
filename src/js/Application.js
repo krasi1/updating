@@ -10,10 +10,6 @@ export default class Application extends EventEmitter {
   constructor() {
     super();
     const article = document.querySelector("article");
-    anime({
-      targets: article,
-    })
-    
     article.addEventListener("click", this.init(article));
   
 
@@ -25,7 +21,7 @@ export default class Application extends EventEmitter {
       translateX: 250,
       direction: 'alternate',
       loop: true,
-      easing: 'linear',
+      easing: 'spring',
     })
     
   }
